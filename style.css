@@ -1,0 +1,307 @@
+:root {
+  --navy: #0a192f;
+  --light-navy: #112240;
+  --slate: #8892b0;
+  --green: #64ffda;
+  --white: #e6f1ff;
+
+  --bg: #0a192f;
+  --text: #e6f1ff;
+  --section-padding: 80px;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Arial', sans-serif;
+  scroll-behavior: smooth;
+  position: relative;
+  z-index: 1;
+}
+
+/* Particle canvas */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  opacity: 0.3; /* Dim it to prevent clutter */
+}
+
+/* Scroll progress */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: var(--green);
+  width: 0%;
+  z-index: 9999;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  background: var(--toggle-bg, var(--light-navy));
+  color: var(--green);
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  transition: background 0.3s ease;
+}
+
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--light-navy);
+  padding: 10px 0;
+  text-align: center;
+  z-index: 1000;
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.nav a {
+  color: var(--slate);
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav a:hover {
+  color: var(--green);
+}
+
+/* Intro Section */
+.intro {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: transparent;
+  z-index: 1;
+  position: relative;
+}
+.intro h1.typing {
+  color: var(--white);
+  font-size: 3em;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--green);
+  width: fit-content;          /* Use fit-content to wrap text tightly */
+  max-width: max-content;      /* Support for some browsers */
+  animation: typing 2.5s steps(14, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 14ch; }  /* Use character count of "Ritesh Rohilla" (14 chars) */
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+.intro p {
+  color: var(--slate);
+  margin: 10px 0 20px;
+}
+.intro .btn {
+  color: var(--green);
+  border: 1px solid var(--green);
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s;
+  z-index: 2;
+}
+.intro .btn:hover {
+  background: var(--green);
+  color: var(--navy);
+}
+
+/* Sections */
+.section {
+  padding: var(--section-padding) 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+  z-index: 1;
+  position: relative;
+}
+.section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section h2 {
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+/* Project and Blog cards */
+.project,
+.blog-post {
+  background: var(--light-navy);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  transition: transform 0.3s ease-in-out;
+}
+.project:hover,
+.blog-post:hover {
+  transform: scale(1.03);
+}
+.project h3,
+.blog-post h3 {
+  color: var(--green);
+}
+.project a,
+.blog-post a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 600;
+}
+.project a:hover,
+.blog-post a:hover {
+  text-decoration: underline;
+}
+
+/* Skills list */
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.skills-list li {
+  background: var(--light-navy);
+  padding: 10px 15px;
+  border-radius: 4px;
+  color: var(--white);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--slate);
+  background: var(--light-navy);
+  z-index: 1;
+  position: relative;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 40px;
+  width: 30px;
+  height: 30px;
+  border-left: 4px solid var(--green);
+  border-bottom: 4px solid var(--green);
+  transform: rotate(-45deg);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: rotate(-45deg) translateY(0); }
+  50% { transform: rotate(-45deg) translateY(10px); }
+}
+
+
+.parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.floaty {
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+
+.project,
+.blog-post {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.typing-loop {
+  font-size: 1.5em;
+  color: var(--slate);
+  margin: 10px 0;
+}
+
+.contact-icons {
+  margin-top: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.contact-icons a img {
+  width: 30px;
+  height: 30px;
+  filter: invert(84%) sepia(27%) saturate(342%) hue-rotate(95deg) brightness(90%) contrast(90%);
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-icons a:hover img {
+  filter: invert(34%) sepia(89%) saturate(375%) hue-rotate(143deg) brightness(102%) contrast(90%);
+}
+
+.contact-icons-contact {
+  justify-content: flex-start;
+  gap: 25px;
+  margin-top: 10px;
+}
+
+
+.contact-icons a {
+  font-size: 30px;
+  color: var(--green);
+  margin: 0 12px;
+  transition: color 0.3s ease;
+}
+
+.contact-icons a:hover {
+  color: #33cc99; /* lighter green on hover */
+  cursor: pointer;
+}
+
+
+.intro .btn {
+  margin-top: 30px; /* or adjust as needed */
+}
+
+.intro .btn {
+  margin-top: 50px
+}

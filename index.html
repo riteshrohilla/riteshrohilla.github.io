@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ritesh Rohilla | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+<body>
+
+<!-- Scroll Progress Bar -->
+<div class="progress-bar" id="scrollBar"></div>
+
+<!-- Particle Background -->
+<div id="particles-js"></div>
+
+<nav class="nav">
+  <ul>
+    <li><a href="#intro">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#blogs">Blogs</a></li>
+    <!-- <li><a href="#contact">Contact</a></li> -->
+  </ul>
+</nav>
+
+<section id="intro" class="intro">
+  <div class="scroll-down"></div>
+  <h4 class="floaty">Hi, I am</h4>
+  <h1 class="typing">Ritesh Rohilla</h1>
+  <!-- <p class="floaty">ML. DS. Maths.</p> -->
+  <p class="typing-loop"><span id="dynamicText"></span></p>
+  <div class="contact-icons">
+  <a href="mailto:riteshrohilla4@gmail.com" title="Email" target="_blank" rel="noopener noreferrer">
+    <i class="fas fa-envelope"></i>
+  </a>
+  <a href="https://github.com/riteshrohilla" title="GitHub" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/riteshrohilla/" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://leetcode.com/u/riteshrohilla/" title="LeetCode" target="_blank" rel="noopener noreferrer">
+    <i class="fas fa-code"></i>
+  </a>
+</div>
+
+
+  <a href="#about" class="btn floaty">Learn More</a>
+</section>
+
+
+<!-- <section id="intro" class="intro">
+  <div class="scroll-down"></div>
+
+  <h4>Hi, I am</h4>
+  <h1 class="typing">Ritesh Rohilla</h1>
+  <p>ML. DS. Maths.</p>
+  <a href="#about" class="btn">Learn More</a>
+</section> -->
+
+<section id="about" class="section animate-on-scroll parallax">
+  <h2>About Me</h2>
+  <p>I like math, physics, and programming. Mostly confused about math. I enjoy solving problems (computational ones, of course). I'm an avid reader, music and food connoisseur, cricket enthusiast, programming aficionado, and cinephile.</p>
+</section>
+
+<section id="projects" class="section animate-on-scroll parallax">
+  <h2>Projects</h2>
+  <div class="project"><h3>Project One</h3><a href="#">View on GitHub</a></div>
+  <div class="project"><h3>Project Two</h3><a href="#">View on GitHub</a></div>
+</section>
+
+<section id="skills" class="section animate-on-scroll parallax">
+  <h2>Skills</h2>
+  <ul class="skills-list">
+    <li>Python</li>
+    <li>SQL</li>
+    <li>Scikit-Learn</li>
+    <li>TensorFlow</li>
+    <li>Model Evaluation</li>
+    <li>NLP</li>
+    <li>GenAI</li>
+    <li>AWS</li>
+    <li>Django</li>
+    <li>JavaScript (React)</li>
+    <li>HTML & CSS</li>
+  </ul>
+</section>
+
+<section id="blogs" class="section animate-on-scroll parallax">
+  <h2>Blogs</h2>
+  <div class="blog-post"><h3>My Journey</h3><a href="#">Read More</a></div>
+  <div class="blog-post"><h3>The Magic of Cinema</h3><a href="#">Read More</a></div>
+</section>
+
+
+<footer>
+  <p>&copy; 2025 Ritesh Rohilla</p>
+</footer>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+  ScrollReveal().reveal('.section', {
+    distance: '40px',
+    duration: 800,
+    easing: 'ease-out',
+    origin: 'bottom',
+    interval: 100
+  });
+</script>
+
+<!-- Scripts -->
+<script src="particles.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
+
