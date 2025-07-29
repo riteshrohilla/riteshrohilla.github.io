@@ -109,9 +109,105 @@ window.addEventListener("scroll", () => {
   });
 });
 
-const phrases = ["Machine Learning", "Python", "Django", "AI Enthusiast"];
-let i = 0;
-setInterval(() => {
-  document.getElementById("dynamicText").textContent = phrases[i];
-  i = (i + 1) % phrases.length;
-}, 2000);
+// const phrases = ["Machine Learning", "Python", "Django", "AI Enthusiast"];
+// let i = 0;
+// setInterval(() => {
+//   document.getElementById("dynamicText").textContent = phrases[i];
+//   i = (i + 1) % phrases.length;
+// }, 2000);
+
+
+// const phrases = ["Machine Learning", "Python", "Django", "AI Enthusiast"];
+// let charIndex = 0;
+// let phraseIndex = 0;
+// let deleting = false;
+// const dynamicText = document.getElementById("dynamicText");
+
+// function typeEffect() {
+//   const currentPhrase = phrases[phraseIndex];
+//   if (!deleting) {
+//     dynamicText.textContent = currentPhrase.substring(0, charIndex++);
+//     if (charIndex > currentPhrase.length) {
+//       deleting = true;
+//       setTimeout(typeEffect, 1000); // wait before deleting
+//       return;
+//     }
+//   } else {
+//     dynamicText.textContent = currentPhrase.substring(0, charIndex--);
+//     if (charIndex === 0) {
+//       deleting = false;
+//       phraseIndex = (phraseIndex + 1) % phrases.length;
+//     }
+//   }
+//   setTimeout(typeEffect, deleting ? 50 : 100);
+// }
+// typeEffect();
+
+
+
+window.addEventListener("scroll", () => {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav a");
+
+  let current = "";
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 80;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
+});
+
+// GSAP Scroll Animations (Super smooth & pro-looking)
+gsap.utils.toArray('.section').forEach(section => {
+  gsap.from(section, {
+    scrollTrigger: {
+      trigger: section,
+      start: "top 80%",
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out"
+  });
+});
+
+// 3D Hover Tilt Effect on Cards
+document.querySelectorAll('.project, .blog-post').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    card.style.transform = `rotateX(${(y - 0.5) * 10}deg) rotateY(${(x - 0.5) * -10}deg)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+  });
+});
+
+// Loading Animation Before Page Shows
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  loader.style.opacity = "0";
+  setTimeout(() => loader.style.display = "none", 500);
+});
+
+
+// Dynamic Text Typing Effect
+gsap.from(".about-glass", {
+  scrollTrigger: {
+    trigger: ".about-glass",
+    start: "top 80%",
+  },
+  opacity: 0,
+  y: 50,
+  duration: 1.2,
+  ease: "power2.out"
+});
