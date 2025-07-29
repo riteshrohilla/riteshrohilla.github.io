@@ -31,18 +31,18 @@
   <div class="scroll-down"></div>
   <h4 class="floaty">Hi, I am</h4>
   <h1 class="typing">Ritesh Rohilla</h1>
-  <!-- <p class="floaty">ML. DS. Maths.</p> -->
   <p class="typing-loop"><span id="dynamicText"></span></p>
-  <div class="contact-icons">
 
+  <div class="contact-icons">
+    
   <a href="https://github.com/riteshrohilla" title="GitHub" target="_blank" rel="noopener noreferrer">
     <i class="fab fa-github"></i>
   </a>
-  
+
   <a href="https://www.linkedin.com/in/riteshrohilla/" title="LinkedIn" target="_blank" rel="noopener noreferrer">
     <i class="fab fa-linkedin"></i>
   </a>
-    
+
   <a href="https://leetcode.com/u/riteshrohilla/" title="LeetCode" target="_blank" rel="noopener noreferrer">
     <i class="fas fa-code"></i>
   </a>
@@ -50,12 +50,16 @@
   <a href="mailto:riteshrohilla4@gmail.com" title="Email" target="_blank" rel="noopener noreferrer">
     <i class="fas fa-envelope"></i>
   </a>
+
 </div>
 
 
   <a href="#about" class="btn floaty">Learn More</a>
 </section>
-
+<!--  Loading Animation Before Page Shows -->
+<div id="loader">
+  <div class="spinner"></div>
+</div>
 
 <!-- <section id="intro" class="intro">
   <div class="scroll-down"></div>
@@ -66,10 +70,33 @@
   <a href="#about" class="btn">Learn More</a>
 </section> -->
 
-<section id="about" class="section animate-on-scroll parallax">
+<!-- <section id="about" class="section animate-on-scroll parallax">
   <h2>About Me</h2>
   <p>I like math, physics, and programming. Mostly confused about math. I enjoy solving problems (computational ones, of course). I'm an avid reader, music and food connoisseur, cricket enthusiast, programming aficionado, and cinephile.</p>
+</section> -->
+<section id="about" class="section about-section">
+  <div class="about-glass">
+    <div class="about-content">
+      <div class="profile-pic-container">
+        <img src="photo.jpeg" alt="Ritesh Rohilla" class="profile-pic" />
+      </div>
+      <div class="about-text-block">
+        <h2>👋 About Me</h2>
+        <p>
+          I'm <strong>Ritesh Rohilla</strong>, a passionate <span class="highlight">AI developer</span> and creative tech enthusiast. I love crafting smart systems using <span class="highlight">Python</span>, <span class="highlight">Machine Learning</span>, and <span class="highlight">Web Technologies</span>.
+        </p>
+        <p>
+          I enjoy turning ideas into real-world projects that help people. Currently, I’m working on building intelligent tools for education and creativity 🚀
+        </p>
+        <a href="#projects" class="btn">View Projects</a>
+      </div>
+    </div>
+  </div>
 </section>
+
+
+
+
 
 <section id="projects" class="section animate-on-scroll parallax">
   <h2>Projects</h2>
@@ -93,6 +120,7 @@
     <li>HTML & CSS</li>
   </ul>
 </section>
+
 
 <section id="blogs" class="section animate-on-scroll parallax">
   <h2>Blogs</h2>
@@ -118,6 +146,39 @@
 <!-- Scripts -->
 <script src="particles.min.js"></script>
 <script src="script.js"></script>
+
+<script>
+  const phrases = ["Machine Learning", "Python", "Django", "AI Enthusiast"];
+  let i = 0;
+  let j = 0;
+  let isDeleting = false;
+  const speed = 100;
+  const target = document.getElementById("dynamicText");
+
+  function type() {
+    const current = phrases[i];
+    if (!isDeleting) {
+      target.textContent = current.slice(0, ++j);
+      if (j === current.length) {
+        isDeleting = true;
+        setTimeout(type, 1200); // pause before deleting
+        return;
+      }
+    } else {
+      target.textContent = current.slice(0, --j);
+      if (j === 0) {
+        isDeleting = false;
+        i = (i + 1) % phrases.length;
+      }
+    }
+    setTimeout(type, isDeleting ? speed / 2 : speed);
+  }
+
+  type();
+</script>
+<!-- GSAP Scroll Animations (Super smooth & pro-looking) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 </body>
 </html>
-
